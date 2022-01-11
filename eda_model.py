@@ -22,6 +22,7 @@ for f in all_filenames:
     final_df=final_df.append(a)
 
 
+
 final_df.drop(labels=["tax(£)","mpg","tax","model"],inplace=True,axis=1)
 final_df=pd.get_dummies(final_df,columns=['transmission','fuelType'],drop_first=True)
 company_dict=final_df.groupby(["Company"])["price"].mean().to_dict()
