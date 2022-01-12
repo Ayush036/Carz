@@ -9,6 +9,38 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href= {{url_for('static',filename='predictor.css')}}>
     <title>Price Prediction</title>
+    <style>
+        body {
+            background-color: #0fd3dd;
+            font-family: 'Poppins', sans-serif;
+
+            background-image: url("cars3.webp");
+            background-repeat: no-repeat;
+            background-size:cover
+
+        }
+        .form {
+            background-color: rgba(50, 115, 220, 0.8);
+<!--            background-image: url("white.jpg");-->
+            background-repeat: no-repeat;
+
+            width: 70vw;
+            margin: 50px auto;
+            padding: 20px 50px;
+            box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+            border-radius: 12px;
+        }
+        .form h1 {
+            color:darkblue;
+        }
+
+        .button {
+            padding: 8px 35px;
+            font-size: 18px;
+            color: darkblue;
+        }
+    </style>
+
 </head>
 <body>
     <section id="prediction-form">
@@ -71,130 +103,27 @@
                 <div class="col-md-6 my-2">
                     <div class="md-form">
                         <label for="fueltype" class="fueltype">Fuel Type</label>
-                        <input type="text" class="form-control" id="fueltype" name="fueltype">
-                    </div>
-                </div>
-                <div class="col-md-6 my-2">
-                    <div class="md-form">
-                        <label for="windspeed3pm" class="windspeed3pm">Wind Speed 3pm (km/hr)</label>
-                        <input type="text" class="form-control" id="windspeed3pm" name="windspeed3pm">
-                    </div>
-                </div>
-                <div class="col-md-6 my-2">
-                    <div class="md-form">
-                        <label for="humidity9am" class="humidity9am">Humidity 9am (percent)</label>
-                        <input type="text" class="form-control" id="humidity9am" name="humidity9am">
-                    </div>
-                </div>
-                <div class="col-md-6 my-2">
-                    <div class="md-form">
-                        <label for="humidity3pm" class="humidity3pm">Humidity 3pm (percent)</label>
-                        <input type="text" class="form-control" id="humidity3pm" name="humidity3pm">
-                    </div>
-                </div>
-                <div class="col-md-6 my-2">
-                    <div class="md-form">
-                        <label for="pressure9am" class="pressure9am">Pressure 9am (hpa)</label>
-                        <input type="text" class="form-control" id="pressure9am" name="pressure9am">
-                    </div>
-                </div>
-                <div class="col-md-6 my-2">
-                    <div class="md-form">
-                        <label for="pressure3pm" class="pressure3pm">Pressure 3pm (hpa)</label>
-                        <input type="text" class="form-control" id="pressure3pm" name="pressure3pm">
-                    </div>
-                </div>
 
-                <div class="col-md-6 my-2">
-                    <div class="md-form">
-                        <label for="temp9am" class="temp9am">Temperature 9am (°C)</label>
-                        <input type="text" class="form-control" id="temp9am" name="temp9am">
-                    </div>
-                </div>
-                <div class="col-md-6 my-2">
-                    <div class="md-form">
-                        <label for="temp3pm" class="temp3pm">Temperature 3pm (°C)</label>
-                        <input type="text" class="form-control" id="temp3pm" name="temp3pm">
-                    </div>
-                </div>
+                        <select class="fueltype" id="fueltype" name = "fueltype" aria-label="fueltype">
+                            <option selected>Select Fuel Type</option>
+                            <option value= 1>Electric</option>
+                            <option value= 2>Petrol</option>
+                            <option value= 3>Hybrid</option>
+                            <option value= 4>Other</option>
 
-                <div class="col-md-6 my-2">
-                    <div class="md-form">
-                        <label for="location" class="location" name="location">Location</label>
-                        <select class="location" id="location" name="location" aria-label="Location">
-                            <option selected>Select Location</option>
-                            <option value= 0.21547134356404635>Adelaide</option>
-                            <option value= 0.2967105263157895>Albany</option>
-                            <option value= 0.20328947368421052>Albury</option>
-                            <option value= 0.08026315789473684>AliceSprings</option>
-                            <option value= 0.19375207710202724>BadgerysCreek</option>
-                            <option value= 0.2569078947368421>Ballarat</option>
-                            <option value= 0.18486842105263157>Bendigo</option>
-                            <option value= 0.222048230504228>Brisbane</option>
-                            <option value= 0.3125>Cairns</option>
-                            <option value=0.1830616996507567>Canberra</option>
-                            <option value= 0.1282818212030575>Cobar</option>
-                            <option value= 0.2888002658690595>CoffsHarbour</option>
-                            <option value= 0.3064140910601529>Dartmoor</option>
-                            <option value= 0.26683369871594115>Darwin</option>
-                            <option value= 0.25493421052631576>GoldCoast</option>
-                            <option value= 0.2383338553084873>Hobart</option>
-                            <option value= 0.1679340937896071>Katherine</option>
-                            <option value= 0.2299342105263158>Launceston</option>
-                            <option value= 0.19918571875978702>Melbourne</option>
-                            <option value= 0.21701561980724493>Melbourne Airport</option>
-                            <option value= 0.10867397806580259>Mildura</option>
-                            <option value= 0.1309405117979395>Moree</option>
-                            <option value= 0.3026315789473684>MountGambier</option>
-                            <option value= 0.2694078947368421>MountGinini</option>
-                            <option value= 0.24053965120105297>Newcastle	</option>
-                            <option value= 0.15335868187579213>Nhil</option>
-                            <option value= 0.26897470039946736>NorahHead</option>
-                            <option value= 0.30541708208707213>NorfolkIsland</option>
-                            <option value= 0.19674310402126952>Nuriootpa</option>
-                            <option value= 0.16782984380192756>PearceRAAF</option>
-                            <option value= 0.19578808818690357>Penrith</option>
-                            <option value= 0.20200438459129347>Perth</option>
-                            <option value= 0.18843469591226322>Perth Airport</option>
-                            <option value= 0.36390827517447655>Portland</option>
-                            <option value= 0.18610834164174145>Richmond</option>
-                            <option value= 0.2136922565636424>Sale</option>
-                            <option value= 0.15728090636454514>Salmon Gums</option>
-                            <option value= 0.2586722488038278>Sydney</option>
-                            <option value= 0.2572283150548355>Sydney Airport</option>
-                            <option value= 0.1707236842105263>Townsville</option>
-                            <option value= 0.18690358670615334>Tuggeranong</option>
-                            <option value= 0.07351077313054499>Uluru</option>
-                            <option value= 0.17813226985709538>WaggaWagga</option>
-                            <option value= 0.3157019294743846>Walpole</option>
-                            <option value= 0.2452642073778664>Watsonia</option>
-                            <option value= 0.2326354270521768>William Town</option>
-                            <option value= 0.292123629112662>Witchcliffe</option>
-                            <option value= 0.23453947368421052>Wollongong</option>
-                            <option value= 0.06713193752077103>Woomera</option>
                         </select>
+                        <div class="col-md-6 my-2 d-flex align-items-end justify-content-around">
+                            <button type="submit" class="btn btn-info button" style="margin-left: 90%;">Predict</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 my-2">
-                    <div class="md-form">
-                        <label for="raintoday" class="raintoday" name="raintoday">Rain Today</label>
-                        <select class="raintoday" id="raintoday" name="raintoday" aria-label="Rain Today">
-                            <option selected>Did it Rain Today</option>
-                            <option value= 1>Yes</option>
-                            <option value= 0>No</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-6 my-2 d-flex align-items-end justify-content-around">
-                    <button type="submit" class="btn btn-info button" style="margin-left: 90%;">Predict</button>
-                </div>
             </div>
         </form>
     </section>
-    <div>
-         <h1><center> {{ prediction }} </center></h1>
-    </div>
+<!--    <div>-->
+<!--         <h1><center> {{ prediction }} </center></h1>-->
+<!--    </div>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>
 </html>
