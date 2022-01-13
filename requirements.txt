@@ -5,4 +5,5 @@ seaborn
 flask
 flask_cors
 gunicorn
+numpy
 
