@@ -1,0 +1,2 @@
+fuel types = ['Petrol', 'Diesel', 'Hybrid', 'Other', 'Electric']
+transmission = ['Manual', 'Automatic', 'Semi-Auto', 'Other']

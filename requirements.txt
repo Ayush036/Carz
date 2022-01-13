@@ -2,4 +2,6 @@ pandas
 sklearn
 matplotlib
 seaborn
+flask
+flask_cors
 
